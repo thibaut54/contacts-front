@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Contact } from '../model/model.contact';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ContactsService {
@@ -10,11 +11,11 @@ export class ContactsService {
 
   }
 
-  getContacts(motCle:string, currentPage:number, size:number) {
-    return this.http.get( "http://localhost:8080/findContacts?nom=" + motCle + "&size=" + size + "&page=" + currentPage )
-    // return this.http.get('http://localhost:8080/contacts')
-      .pipe( map( httpResponse => httpResponse ) );
-  }
+  getContacts(motCle:string): Observable<Array<Contact>> {
+    return this.http.get<Array<Contact>>( "http://localhost:8080/findContacts?nom=" + motCle )
+    // return this.http.get('http://localhost:8080/contacts').subscribe();
+      .pipe( map( httpResponse => httpResponse ) )};
+
 
   getContact(id:number) {
     return this.http.get( "http://localhost:8080/contacts/" + id)
