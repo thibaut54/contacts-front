@@ -7,6 +7,10 @@
         <button class="mx-2 btn btn-primary" (click)="chercher()">Rechercher</button>
       </div>
 
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+
       <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
         <!--- Note that these columns can be defined in any order.

@@ -52,6 +52,12 @@ export class ContactsComponent implements AfterViewInit{
     this.doSearch()
   }
 
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
+
   gotoPage(i:number){
     this.currentPage = i;
     this.doSearch();

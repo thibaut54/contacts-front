@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { NewContactComponent } from './new-contact/new-contact.component';
 import { NewContactV2Component } from './new-contact-v2/new-contact-v2.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
-import { MatPaginatorModule, MatSortModule, MatTableModule } from '@angular/material';
+import { MatInputModule, MatPaginatorModule, MatSortModule, MatTableModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
@@ -39,7 +39,8 @@ const appRoutes: Routes = [
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatInputModule
   ],
   providers: [ ContactsService ],
   bootstrap: [ AppComponent ]
