@@ -1,0 +1,46 @@
+<div class="container spacer">
+  <div class="card">
+    <div class="card-header">Votre recherche</div>
+    <div class="card-body">
+      <div class="form-group">
+        <input type="text" [(ngModel)]="motCle" placeholder="nom du contact"/>
+        <button class="mx-2 btn btn-primary" (click)="chercher()">Rechercher</button>
+      </div>
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Email</th>
+        </tr>
+        <tr *ngFor="let c of pageContacts?.content">
+          <!--<tr *ngFor="let c of pageContacts">-->
+          <td>{{c.id}}</td>
+          <td>{{c.nom}}</td>
+          <td>{{c.prenom}}</td>
+          <td>{{c.email}}</td>
+          <td>
+            <a (click)="onEditContact(c.id)" class="clickable">Edit</a>
+          </td>
+        </tr>
+      </table>
+      <!--<div class="container">-->
+        <!--<ul class="nav nav-pills">-->
+          <!--<li class="nav-item" [ngClass]="{'active':(i+1)==currentPage}" *ngFor="let p of pages; let i=index">-->
+            <!--<a class="nav-link" (click)="gotoPage(i+1)">{{i+1}}</a>-->
+          <!--</li>-->
+        <!--</ul>-->
+      <!--</div>-->
+      <div class="container">
+        <nav aria-label="...">
+          <ul class="pagination">
+            <li class="page-item" [ngClass]="{'active':i==currentPage}" *ngFor="let p of pages; let i=index">
+              <a class="page-link clickable" (click)="gotoPage(i)">{{i+1}}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+</div>
